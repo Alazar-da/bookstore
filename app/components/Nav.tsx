@@ -16,7 +16,7 @@ function Nav() {
             </div>
             <div className='hidden md:grid md:col-span-5' id='menu'>
                 <ul className='menu md:flex md:justify-center md:flex-row my-auto pr-7'>
-                    <li className='py-2 md:px-2' ><Link href={'../book'}>Books</Link></li>
+                    <li className='py-2 md:px-2' ><Link href={'/'}>Books</Link></li>
                     <li className='py-2 md:px-2' ><Link href={'../addbook'}>Add Books</Link></li>
                     <li className='py-2 md:px-2'><Link href={'../customerBooks'}>customer Books</Link></li>
                     <li className='py-2 md:px-2'><Link href={'../orders'}>Orders</Link></li>
