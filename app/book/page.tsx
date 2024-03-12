@@ -3,9 +3,6 @@ import Nav from '../components/Nav';
 import React from 'react';
 
 function Book() {
-    const collapse = () => {
-        document.querySelector('#menu')?.classList.toggle('hidden');
-      };
     return(
         <>
         <Nav />
@@ -48,7 +45,6 @@ function Book() {
                       <td className="border border-slate-600 px-4 py-2">The Eagles</td>
                       <td className="border border-slate-600  px-4 py-2">1972</td>
                   </tr>
-  
               </tbody>
           </table>
       </div>

@@ -84,7 +84,7 @@ function AddBooks() {
                   value={data.Price}
                   onChange={(e) => setData({ ...data, Price: e.target.value })}
                   required
-                  type="number" name="Price" placeholder="Price In Birr" min={0} className="input input-bordered input-primary w-full max-w-xs bg-white" />
+                  type="number" step=".01" name="Price" placeholder="Price In Birr" min={0} className="input input-bordered input-primary w-full max-w-xs bg-white" />
               </div>
               <div className="grid justify-center">
                   <label className="">Status</label>
