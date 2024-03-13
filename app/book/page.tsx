@@ -2,20 +2,30 @@
 import Nav from '../components/Nav';
 import React, { useEffect, useState } from 'react';
 
+interface BookData {
+  id: string;
+  Title: string;
+  Author: string;
+  Edition: string;
+  Price: string;
+  Status: string;
+  Overview: string;
+  Type: string;
+  Genre: string;
+}
+
 function Book() {
-// eslint-disable-next-line react-hooks/rules-of-hooks
-const [data, setData] = React.useState([]);
+  const [data, setData] = useState<BookData[]>([]);
 
   useEffect(() => {
     fetchData();
-  });
+  }, []);
 
   const fetchData = async () => {
     const response = await fetch('/api/addbook');
     const datas = await response.json();
     setData(datas);
   };
-  console.log(data);
 
   return (
     <>
@@ -32,22 +42,24 @@ const [data, setData] = React.useState([]);
                 <th className="border border-slate-600 px-4 py-2">Status</th>
                 <th className="border border-slate-600 px-4 py-2">Overview</th>
                 <th className="border border-slate-600 px-4 py-2">Type</th>
-                <th className="border border-slate-600 px-4 py-2">Genere</th>
+                <th className="border border-slate-600 px-4 py-2">Genre</th>
                 <th className="border border-slate-600 px-4 py-2">Action</th>
               </tr>
             </thead>
             <tbody>
-              {data.map((list) => (
-                <tr key={list._id}>
-                  <td className="border border-slate-600 px-4 py-2">{list.Title}</td>
-                  <td className="border border-slate-600 px-4 py-2">{list.Author}</td>
-                  <td className="border border-slate-600 px-4 py-2">{list.Edition}</td>
-                  <td className="border border-slate-600 px-4 py-2">{list.Price}</td>
-                  <td className="border border-slate-600 px-4 py-2">{list.Status}</td>
-                  <td className="border border-slate-600 px-4 py-2">{list.Overview}</td>
-                  <td className="border border-slate-600 px-4 py-2">{list.Type}</td>
-                  <td className="border border-slate-600 px-4 py-2">{list.Genere}</td>
-                  <td className="border border-slate-600 px-4 py-2"><a>Edit</a> <a>Delete</a></td>
+              {data.map((item) => (
+                <tr key={item.id}>
+                  <td className="border border-slate-600 px-4 py-2">{item.Title}</td>
+                  <td className="border border-slate-600 px-4 py-2">{item.Author}</td>
+                  <td className="border border-slate-600 px-4 py-2">{item.Edition}</td>
+                  <td className="border border-slate-600 px-4 py-2">{item.Price}</td>
+                  <td className="border border-slate-600 px-4 py-2">{item.Status}</td>
+                  <td className="border border-slate-600 px-4 py-2">{item.Overview}</td>
+                  <td className="border border-slate-600 px-4 py-2">{item.Type}</td>
+                  <td className="border border-slate-600 px-4 py-2">{item.Genre}</td>
+                  <td className="border border-slate-600 px-4 py-2">
+                    <a>Edit</a> <a>Delete</a>
+                  </td>
                 </tr>
               ))}
             </tbody>
