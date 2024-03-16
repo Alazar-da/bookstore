@@ -18,7 +18,6 @@ interface BookData {
 
 function Book() {
   const [data, setData] = useState<BookData[]>([]);
-
   useEffect(() => {
     fetchData();
   }, []);
@@ -33,14 +32,12 @@ function Book() {
 
   }
   const Delete = async (deleteId: string) => {
-
-    const response = await fetch(`/api/addbook?_id${deleteId}`,{
-        method:'DELETE',
+    const response = await fetch(`/api/addbook/${deleteId}`, {
+      method: 'DELETE',
     });
     const datas = await response.json();
     fetchData()
-   /*  setData(datas); */
-  }
+  };
 
   return (
     <>
